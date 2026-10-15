@@ -1,4 +1,4 @@
-const API = "";
+const API = (import.meta.env.VITE_API_BASE_URL || "").replace(/\\/$/, "");
 
 export async function api(path, { method = "GET", body, token, form } = {}) {
   const headers = {};
