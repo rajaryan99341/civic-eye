@@ -1,0 +1,1 @@
+The project source files are prepared in the cleaned archive shared in the ChatGPT conversation. The complete bulk upload has not yet been completed.
