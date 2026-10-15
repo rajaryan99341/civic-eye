@@ -1,4 +1,4 @@
-const API = (import.meta.env.VITE_API_BASE_URL || "").replace(/\\/$/, "");
+const API = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 
 export async function api(path, { method = "GET", body, token, form } = {}) {
   const headers = {};
@@ -23,6 +23,7 @@ export async function api(path, { method = "GET", body, token, form } = {}) {
 
 export function imageUrl(path) {
   if (!path) return "";
-  if (path.startsWith("http") || path.startsWith("/api/")) return path;
-  return `/api/uploads/${path}`;
+  if (path.startsWith("http")) return path;
+  if (path.startsWith("/api/")) return `${API}${path}`;
+  return `${API}/api/uploads/${path}`;
 }
