@@ -1,0 +1,2 @@
+import {useEffect,useState} from "react";import {useAuth} from "../AuthContext";import MapPanel from "../components/MapPanel.jsx";
+export default function MapExplorer(){const {api}=useAuth();const [points,setPoints]=useState([]);useEffect(()=>{api("/api/officer/map").then(setPoints).catch(()=>{})},[]);return <main className="page"><h1 className="serif">Issue map</h1><MapPanel points={points}/></main>}
